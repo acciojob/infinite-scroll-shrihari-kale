@@ -1,4 +1,4 @@
-const list = document.querySelector("#infi-list");
+const list = document.getElementById("infi-list");
 
 let itemCount = 0;
 
@@ -11,12 +11,12 @@ function addItems(count) {
   }
 }
 
-// Add 10 items initially
+// Initial 10 items
 addItems(10);
 
-// Scroll event method (Cypress friendly)
-list.addEventListener("scroll", () => {
-  if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
+list.addEventListener("scroll", function () {
+  // small buffer added (important for Cypress)
+  if (list.scrollTop + list.clientHeight >= list.scrollHeight - 5) {
     addItems(2);
   }
 });
