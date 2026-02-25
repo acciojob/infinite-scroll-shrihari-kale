@@ -2,14 +2,12 @@ body {
   font-family: Arial, sans-serif;
 }
 
-ul {
-  width: 250px;
-	
-  margin: auto;
-  padding: 0;
-  border:10px solid;
+#infi-list {
+  height: 300px;
+  overflow-y: auto;
+	border:solid 10px;
+	width:200px;
 }
-
 li {
   list-style: none;
   padding: 15px;

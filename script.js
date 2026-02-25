@@ -1,4 +1,4 @@
-const list = document.querySelector("#list");
+const list = document.querySelector("#infi-list");
 
 let itemCount = 0;
 
@@ -9,16 +9,14 @@ function addItems(count) {
     li.textContent = "Item " + itemCount;
     list.appendChild(li);
   }
-
-  observer.observe(list.lastElementChild);
 }
 
-const observer = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting) {
-    observer.unobserve(entries[0].target);
+// Add 10 items initially
+addItems(10);
+
+// Scroll event method (Cypress friendly)
+list.addEventListener("scroll", () => {
+  if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
     addItems(2);
   }
 });
-
-// Add 10 items by default
-addItems(10);
